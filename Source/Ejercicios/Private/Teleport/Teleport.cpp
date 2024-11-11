@@ -5,6 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 
 ATeleport::ATeleport()
@@ -104,6 +105,11 @@ void ATeleport::Teleport(AActor* ActorToTeleport)
 			this,
 			TeleportEffect,
 			EffectsSpawnPoint->GetComponentLocation(), FRotator::ZeroRotator, FVector(1), true);
+	}
+
+	if (Sound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, Sound, EffectsSpawnPoint->GetComponentLocation(), FRotator::ZeroRotator, 0.3);
 	}
 	
 	bTeleportUsed = true;

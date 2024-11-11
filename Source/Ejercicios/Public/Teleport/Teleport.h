@@ -43,6 +43,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Teleport")
 	USceneComponent* EffectsSpawnPoint;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Teleport")
+	USoundBase* Sound;
 	
 	UPROPERTY(EditAnywhere, Category = "Teleport")
 	UStaticMeshComponent* TeleportMesh;
