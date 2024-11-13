@@ -107,6 +107,7 @@ void ATeleport::Teleport(AActor* ActorToTeleport)
 			EffectsSpawnPoint->GetComponentLocation(), FRotator::ZeroRotator, FVector(1), true);
 	}
 
+	//Play sound if its set
 	if (Sound)
 	{
 		UGameplayStatics::PlaySoundAtLocation(this, Sound, EffectsSpawnPoint->GetComponentLocation(), FRotator::ZeroRotator, 0.3);

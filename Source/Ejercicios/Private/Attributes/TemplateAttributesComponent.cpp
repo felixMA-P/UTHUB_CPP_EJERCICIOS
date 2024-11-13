@@ -43,14 +43,16 @@ void UTemplateAttributesComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	TArray<FAttributesStructure*> Attributes;
-	DefaultValues->GetAllRows<FAttributesStructure>("FAttributesStructure", Attributes);
-
-	for (FAttributesStructure* Attribute : Attributes)
+	if (DefaultValues)
 	{
-		CreateAttribute(Attribute->AttName, Attribute->DefaultValue);
-	}
+		TArray<FAttributesStructure*> Attributes;
+		DefaultValues->GetAllRows<FAttributesStructure>("FAttributesStructure", Attributes);
 	
+		for (FAttributesStructure* Attribute : Attributes)
+		{
+			CreateAttribute(Attribute->AttName, Attribute->DefaultValue);
+		}
+	}
 }
 
 void UTemplateAttributesComponent::TickComponent(float DeltaTime, ELevelTick TickType,
